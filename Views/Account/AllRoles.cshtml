@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IdentityRole>
+@{
+    ViewData["Title"] = "AllRoles";
+}
+
+<section class="contact-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-12 mx-auto">
+                @if (Model.Any())
+                {
+                    <br />
+                    <div><a asp-action="CreateRole" asp-controller="Account" class="btn btn-primary" style="background-color: #7DC4C5; color: black; border: none "> Create New Role </a></div>
+                    <br />
+                    @foreach (var item in Model)
+                    {
+                        <div class="card">
+                            <div class="card-header" style="font-size:6pt">Role Number : @item.Id</div>
+                            <div class="card-body"><h1 class="card-body" style="font-size:10pt">Role Name  : @item.Name</h1></div>
+                            <div class="card-footer">
+                                <a asp-action="EditRole" asp-controller="Account" asp-route-id="@item.Id" class="btn btn-primary" style="background-color: #fd7914; color: black ;border:none "  >Edit Role</a>
+                                <a asp-action="DeleteRole" asp-controller="Account" asp-route-id="@item.Id" class="btn btn-danger">Delete Role</a>
+                            </div>
+
+
+                        </div>
+                        <br />
+
+                    }
+
+
+                }
+                else
+                {
+
+                    <div class="card">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h1 class="card-title">
+                                No Roles <br />
+                                Click on a button to Create New Role
+                            </h1>
+                        </div>
+                        <div class="card-footer">
+                            <div><a asp-action="CreateRole" asp-controller="Account" class="btn btn-primary"> Create New Role </a></div>
+                        </div>
+
+
+                    </div>
+                
+
+}
+                </div>
+                </div>
+                </div>
+                </section>

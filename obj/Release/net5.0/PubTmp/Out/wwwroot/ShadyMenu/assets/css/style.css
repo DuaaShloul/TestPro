@@ -1,0 +1,258 @@
+.menu-body {
+    font-family: 'Nunito', Tahoma, sans-serif;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu-container {
+    width: calc(100% - 42px);
+    padding: 20px;
+}
+
+
+.menu-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    min-height: 185px;
+    padding: 20px;
+    flex-direction: column;
+}
+
+
+
+.menu-category {
+    width: 100%;
+    border-bottom: 2px solid #e5a80e;
+    margin: 20px 0px 20px 0px;
+}
+
+    .menu-category h1 {
+        color: #e5a80e;
+        font-size: 35px;
+        padding-bottom: 6px;
+    }
+
+.menu-header > h1 {
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.menu-logo {
+    width: 125px;
+}
+
+.itemCard {
+    position: relative;
+    width: 100%;
+    margin: 20px 0px;
+    border-bottom: 1px solid gray;
+}
+
+.menu-prodact-image {
+    width: 160px;
+    display: inline-block;
+}
+
+    .menu-prodact-image img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        padding: 20px;
+        border-radius: 40px;
+    }
+
+.menu-prodact-name {
+    width: 65%;
+    color: black;
+    display: inline-block;
+}
+
+    .menu-prodact-name h1 {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0px;
+        margin: 0px;
+        display: block;
+    }
+
+    .menu-prodact-name h2 {
+        font-size: 16px;
+        font-weight: normal;
+        padding: 0px;
+        margin: 0px;
+        display: block;
+    }
+
+.menu-prodact-price {
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .menu-prodact-price h1 {
+        padding: 5px;
+        text-align: center;
+        color: white;
+        font-size: 22px;
+        letter-spacing: 3px;
+        line-height: 25px;
+        border-radius: 10px;
+        background: #008457;
+    }
+
+.quantity {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.qtyContainer {
+    display: inline-block;
+    width: 60%;
+    text-align: left;
+}
+
+
+.qtySpan {
+    color: black;
+}
+
+.itemsNo {
+    width: 100%;
+    display: inline-block;
+}
+
+.addItem {
+    width: 25%;
+    color: white;
+    background: #008457;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 100px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+
+@media(600px < width < 800px) {
+    .menu-prodact-price h1 {
+        font-size: 15px;
+    }
+
+    .menu-prodact-name {
+        width: 55%;
+    }
+
+        .menu-prodact-name h1 {
+            font-size: 13px;
+        }
+
+        .menu-prodact-name h2 {
+            font-size: 12px;
+        }
+
+    .qtyContainer {
+        width: 100%;
+        margin-top: -40px;
+    }
+
+    .addItem {
+        width: 60%;
+        margin-top: 5px;
+    }
+
+    .qtySpan {
+        font-size: 11px;
+    }
+}
+
+
+@media(width > 600px) {
+    .menu-prodact-price {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        height: 100%;
+    }
+}
+
+
+
+
+@media(max-width: 600px) {
+
+
+
+    .itemCard {
+        border-radius: 5px;
+        box-shadow: 0 0 5px gray;
+        margin: 20px;
+    }
+
+    .menu-prodact-image {
+        width: 100%;
+    }
+
+        .menu-prodact-image img {
+            width: 100%;
+            border-radius: 5px 5px 0px 0px;
+            aspect-ratio: 1 / 1;
+        }
+
+    .menu-prodact-name {
+        width: 100%;
+        padding: 15px;
+        color: black;
+    }
+
+        .menu-prodact-name h1 {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 8px 0px;
+            margin: 0px;
+        }
+
+        .menu-prodact-name h2 {
+            font-size: 16px;
+            font-weight: normal;
+            padding: 8px 0px;
+            margin: 0px;
+        }
+
+    .menu-prodact-price {
+        width: 100%;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+        .menu-prodact-price h1 {
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            letter-spacing: 3px;
+            line-height: normal;
+        }
+
+    .menu-container {
+        width: calc(100% - 45px);
+        padding: 45px;
+    }
+
+    .quantity {
+        margin-top: -15px;
+    }
+}

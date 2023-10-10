@@ -1,0 +1,138 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Nata QR Code Menu </title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link href="~/NataHTML/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="~/NataHTML/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="~/NataHTML/css/style.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <main>
+    
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                        <span>
+                            <img src="~/NataHTML/images/NATA-logo-s.png" width="100">
+                        </span>
+                    </a>
+
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto me-lg-4">
+
+                            @if (User.IsInRole("Owner"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="Messages" asp-controller="Account">الرسائل</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="Register" asp-controller="Account">اضافة حساب</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="AllRoles" asp-controller="Account">الصلاحيات</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="AllUsers" asp-controller="Account">الحسابات</a>
+                                </li>
+
+                            }
+                            else if (User.IsInRole("Shady"))
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Dashboard" asp-area="Administrator">لوحة التحكم </a>
+                                </li>
+
+                            }
+                            else if (User.IsInRole("DemoAdmin"))
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Dashboard" asp-area="Administrator">لوحة التحكم </a>
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" asp-action="Index" asp-controller="Home">ابدأ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_2">من نحن </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_3">شركاؤنا </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_4">اتصل بنا</a>
+                                </li>
+                            }
+                            @if (signInManager.IsSignedIn(User))
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="Logout" asp-controller="Account">تسجيل الخروح</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="Login" asp-controller="Account">تسجيل الدخول</a>
+                                </li>
+
+                            }
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" style="font-family: cairo;" asp-action="Index" asp-controller="Home">English</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            @RenderBody()
+
+
+
+        </main>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/NataHTML/js/jquery.min.js"></script>
+        <script src="~/NataHTML/js/bootstrap.bundle.min.js"></script>
+        <script src="~/NataHTML/js/jquery.sticky.js"></script>
+        <script src="~/NataHTML/js/click-scroll.js"></script>
+        <script src="~/NataHTML/js/custom.js"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</html>

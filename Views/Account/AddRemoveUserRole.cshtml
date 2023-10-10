@@ -1,0 +1,38 @@
+﻿
+@model List<UserRoleViewModel>
+@{
+    ViewData["Title"] = "AddRemoveUserRole";
+}
+ 
+
+<section class="contact-section section-padding" id="section_4">
+
+    <div class="row">
+
+        <div class="col-lg-5 col-12 mx-auto">
+            <form  class="custom-form download-form bg-white shadow" action="AddRemoveUserRole" method="post">
+                <h1>Add Or Remove Users To This Role </h1>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            UserName
+                        </td>
+                    </tr>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <input type="hidden" asp-for="@Model[i].UserId" />
+                                <input type="hidden" asp-for="@Model[i].UserName" />
+                                <input type="hidden" value="@ViewBag.roleId" name="roleId" />
+                                <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                                <label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <h2>
+                    <input type="submit" value="Save" class="btn btn-primary"   style="width :100% ;background-color: #fd7914; color: black; border: none " />
+                </h2>
+            </form>
+            </div></div></section>

@@ -1,0 +1,92 @@
+.menu-body {
+    font-family: 'Nunito', Tahoma, sans-serif;
+    background: linear-gradient(lightgrey, darkgrey);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.menu-container{
+    width: calc(100% - 42px);
+    padding: 20px;
+}
+
+.itemRow{
+    border-bottom: solid 1px gray;
+}
+
+.categoryRow{
+    border-bottom: solid 2px #e5a80e;
+}
+
+.menu-header{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-logo{
+    width: 125px;
+}
+
+.menu-table{
+    width: 100%;
+    padding: 20px;
+    border-collapse: collapse;
+}
+
+.menu-prodact-category{
+    width: 100%;
+}
+
+.menu-prodact-image{
+    width: 15%;
+    padding: 13px 10px;
+}
+
+.menu-prodact-name{
+    width: 70%;
+    color: #ededed;
+}
+
+.menu-prodact-price{
+    width: 15%;
+}
+
+.menu-prodact-category h1{
+    color: #e5a80e;
+    font-size: 35px;
+    padding-bottom: 6px;
+}
+
+.menu-prodact-image img{
+    max-width: 100px;
+    width: 100px;
+    aspect-ratio: 1 / 1;
+}
+
+.menu-prodact-name h1{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 0px;
+    margin: 0px;
+}
+
+.menu-prodact-name h2{
+    font-size: 16px;
+    font-weight: normal;
+    padding: 5px 20px;
+    margin: 0px;
+}
+
+.menu-prodact-price h1{
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background: #008457;
+    border-radius: 5px;
+    font-size: 22px;
+    letter-spacing: 3px;
+}

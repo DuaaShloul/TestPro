@@ -1,0 +1,281 @@
+﻿
+@model List<Cart>
+
+@{
+
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <style>
+        /* Add styles for the receipt container */
+        .contact-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        /* Style the receipt table */
+        #cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            #cart-table th,
+            #cart-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+        /* Style the Clear Cart button */
+        #clear-cart-btn {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+            #clear-cart-btn:hover {
+                background-color: #c9302c;
+            }
+
+        /* Style the receipt total */
+        #cart-total {
+            font-weight: bold;
+        }
+
+        /* Style the buttons in the receipt */
+        button {
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+            button:hover {
+                background-color: #31b0d5;
+            }
+
+            button.cart-button {
+                background-color: #5bc0de;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                margin-right: 5px;
+            }
+
+                button.cart-button:hover {
+                    background-color: #31b0d5;
+                }
+
+        /* Style the delete button container with vertical spacing */
+        .delete-button-container {
+            margin-top: 10px; /* Adjust this value to control the vertical spacing */
+        }
+    </style>
+</head>
+<body>
+    <section class="contact-section section-padding" id="section_4">
+        <div style=" display: flex; justify-content: center; align-items: center; " class="container">
+            <div class="row" style="max-width: 600px;">
+                <div class="col-lg-5 col-12 mx-auto">
+                    <h2>Your Receipt</h2>
+                    <table id="cart-table" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price (JD)</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <!-- Cart items will be dynamically added here -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Total:</td>
+                                <td id="cart-total">0 JD</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+              
+                    <!-- Add an input field for table number -->
+                    <input type="text" id="table-number" placeholder="Enter Table Number">
+
+                    <!-- Add a "Submit Order" button -->
+                    <button id="submit-order-btn" class="btn btn-success">Submit Order</button>
+                </div>
+                <button id="clear-cart-btn" class="btn btn-danger">Clear Cart</button>
+              
+                <button id="go-back-btn" class="btn btn-primary">Go Back To Menu</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <script>
+
+      
+        // Retrieve cart items from localStorage
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Get a reference to the cart-table and cart-total elements
+            var cartTable = document.getElementById('cart-table').getElementsByTagName('tbody')[0];
+            var cartTotal = document.getElementById('cart-total');
+
+            var totalPrice = 0;
+
+            // Function to update the cart display
+            function updateCartDisplay() {
+                cartTable.innerHTML = '';
+            totalPrice = 0;
+
+            // Loop through cart items and create rows in the table to display them
+            cartItems.forEach(function (item, index) {
+                if (item.quantity > 0) {
+                    var row = cartTable.insertRow();
+            var nameCell = row.insertCell(0);
+            var priceCell = row.insertCell(1);
+            var quantityCell = row.insertCell(2);
+            var totalCell = row.insertCell(3);
+            var actionCell = row.insertCell(4);
+
+            nameCell.innerHTML = item.name;
+                    priceCell.innerHTML = item.price.toFixed(2)  + " JD";
+            quantityCell.innerHTML = item.quantity;
+
+            var rowTotal = item.price * item.quantity;
+                    totalCell.innerHTML = rowTotal.toFixed(2)  + " JD";
+            totalPrice += rowTotal;
+
+            var increaseButton = document.createElement('button');
+            increaseButton.textContent = '+';
+            increaseButton.addEventListener('click', function () {
+                cartItems[index].quantity++;
+            updateCartDisplay();
+            updateLocalStorage();
+                    });
+
+            var decreaseButton = document.createElement('button');
+            decreaseButton.textContent = '-';
+            decreaseButton.addEventListener('click', function () {
+                        if (cartItems[index].quantity > 0) {
+                cartItems[index].quantity--;
+            updateCartDisplay();
+            updateLocalStorage();
+                        }
+                    });
+
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', function () {
+                cartItems.splice(index, 1);
+            updateCartDisplay();
+            updateLocalStorage();
+                    });
+
+            actionCell.appendChild(increaseButton);
+            actionCell.appendChild(decreaseButton);
+            actionCell.appendChild(deleteButton);
+                }
+            });
+
+                cartTotal.innerHTML = totalPrice.toFixed(2)  + " JD";
+            updateLocalStorage();
+        }
+
+            // Function to update cartItems in local storage
+            function updateLocalStorage() {
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+
+            // Call the updateCartDisplay function initially
+            updateCartDisplay();
+
+            var clearCartButton = document.getElementById('clear-cart-btn');
+
+            // Add a click event listener to the clear cart button
+            clearCartButton.addEventListener('click', function () {
+                // Clear the cart by removing all items from localStorage
+                localStorage.removeItem('cartItems');
+            cartItems = [];
+            updateCartDisplay();
+            });
+
+        // Function to go back to the last page
+        function goBack() {
+            window.history.back();
+        }
+
+        var goBackButton = document.getElementById('go-back-btn');
+
+        // Add a click event listener to the "Go Back" button
+        goBackButton.addEventListener('click', goBack);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // Function to handle the "Submit Order" button click event
+        // Function to submit the order
+        function submitOrder() {
+            // Get the table number entered by the user
+            var tableNumber = document.getElementById('table-number').value;
+
+            // Check if a table number has been entered
+            if (tableNumber === "") {
+                alert("Please enter a table number.");
+                return;
+            }
+
+            // Serialize the cartItems list to JSON
+            var cartItemsJson = JSON.stringify(cartItems);
+
+            // Create an object to represent the order data
+            var order = {
+                TableNumber: tableNumber,
+                CartItemsJson: JSON.parse(cartItemsJson) // Parse cartItemsJson to a JavaScript object
+            };
+            //console.log(CartItemsJson);
+            // Send the order data to the server for saving
+            fetch('/Menus/SaveOrder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(order)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                       
+                        // Order saved successfully, you can clear the cart or perform other actions
+                        alert("Order submitted successfully!");
+                        // Clear the cart or perform other actions here
+                    } else {
+                        alert("Failed to submit order. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred while submitting the order.");
+                });
+        }
+
+        // Add a click event listener to the "Submit Order" button
+        var submitOrderButton = document.getElementById('submit-order-btn');
+        submitOrderButton.addEventListener('click', submitOrder);
+
+    </script>
+ 
+</body>
+</html>

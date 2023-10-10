@@ -1,0 +1,402 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+@model Contact
+@{
+    ViewData["Title"] = "IndexAR";
+    Layout = "~/Views/Shared/_LayoutAR.cshtml";
+}
+
+<section class="hero-section d-flex justify-content-center align-items-center" style="direction: rtl;" id="section_1">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12 mb-5 pb-5 pb-lg-0 mb-lg-0">
+
+                <h6>مسح القائمة الذكية!</h6>
+
+                <h1 class="text-white mb-4">NATA الحل الأمثل للقائمة الذكية عبر الإنترنت لرمز الاستجابة السريعة QR</h1>
+
+                <a href="#section_4" class="btn custom-btn smoothscroll me-3">انشئ QR خاص بك</a>
+
+                <a href="#section_2" class="link link--kale smoothscroll">استكشف المزيد</a>
+            </div>
+
+            <div class="hero-image-wrap col-lg-6 col-12 mt-3 mt-lg-0">
+               
+                <img src="~/NataHTML/images/education-online-books.png" class="hero-image img-fluid" alt="education online books">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="featured-section-ar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-12">
+                <div class="avatar-group d-flex flex-wrap align-items-center" style="flex-direction: row-reverse; justify-content: flex-end;">
+                    <img src="~/NataHTML/images/avatar/portrait-beautiful-young-woman-standing-grey-wall.jpg" class="img-fluid avatar-image" alt="">
+
+                    <img src="~/NataHTML/images/avatar/portrait-young-redhead-bearded-male.jpg" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                    <img src="~/NataHTML/images/avatar/pretty-blonde-woman.jpg" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                    <img src="~/NataHTML/images/avatar/studio-portrait-emotional-happy-funny-smiling-boyfriend.jpg" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                    <div class="reviews-group mt-3 mt-lg-0">
+                        <strong>4.5</strong>
+
+                        <i class="bi-star-fill"></i>
+                        <i class="bi-star-fill"></i>
+                        <i class="bi-star-fill"></i>
+                        <i class="bi-star-fill"></i>
+                        <i class="bi-star"></i>
+
+                        <small class="ms-3">2,564 reviews</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-lg-5"></section>
+
+
+<section class="book-section section-padding" id="section_2">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+                <img src="~/NataHTML/images/tablet-screen-contents.jpg" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <div class="book-section-info" style="direction: rtl;">
+                    <h6>انشئ قائمة طعام احترافية</h6>
+
+
+                    <h2 class="mb-4">معلومات عن NATA </h2>
+
+                    <p>
+                        مرحبًا بكم في NATA، شريككم الموثوق به في تبسيط تجربة تناول الطعام لأصحاب المطاعم والزبائن على حد سواء.
+                        <br />
+                        حن متخصصون في إنشاء رموز الاستجابة السريعة (QR) لقوائم المطاعم، مما يجعل الوصول إلى الأطباق الشهية والعروض وأكثر من ذلك بسهولة عبر مسح هاتفك الذكي.
+                        <br />
+                        في NATA، نفهم احتياجات صناعة الضيافة المتطورة، خاصة في العصر الرقمي. مع انتشار تناول الطعام بدون اتصال وأهمية تقديم تجربة آمنة ومريحة لزبائنكم، قمنا بتصميم خدمتنا لتلبية هذه المتطلبات.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 text-center">
+                <h6>ما محتوى المشروع ؟</h6>
+
+                <h2 class="mb-5">لمحة سريعة</h2>
+            </div>
+
+            <div class="col-lg-4 col-12">
+                <nav id="navbar-example3" class="h-100 flex-column align-items-stretch">
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link smoothscroll" href="#item-1">المقدمة</a>
+
+                        <a class="nav-link smoothscroll" href="#item-2">مهمتنا</a>
+
+                        <a class="nav-link smoothscroll" href="#item-3">لماذا تختارونا؟</a>
+
+                        <a class="nav-link smoothscroll" href="#item-4">انضموا إلينا</a>
+                    </nav>
+                </nav>
+            </div>
+
+            <div class="col-lg-8 col-12">
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0" style="direction: rtl;">
+
+                    <div class="scrollspy-example-item" id="item-1">
+                        <h5>مقدمة عن NATA</h5>
+
+                        <p>
+
+                            مع ظهور خدمة تناول الطعام بدون تلامس وأهمية توفير تجربة آمنة ومريحة لعملائك،
+                            <br />
+                            لقد صممنا خدمتنا لتلبية هذه المتطلبات بشكل مباشر.
+                        </p>
+
+                        <blockquote class="blockquote">With NATA, Scan .. Eat .. Repeat</blockquote>
+
+                    </div>
+
+                    <div class="scrollspy-example-item" id="item-2">
+                        <h5>مهمتنا</h5>
+
+                        <p>
+                            مهمتنا هي تقديم جسر بين التكنولوجيا وتجربة تناول الطعام، مما يعزز من الطريقة التي يتفاعل بها الناس مع قوائم المطاعم. نحن ملتزمون بمساعدة أصحاب المطاعم في:                                        <br />
+                            <br />
+                            تبسيط العمليات: نجعل من السهل على المطاعم ترقية قوائمهم وتحديثها في الوقت الفعلي. وداعًا لتكاليف الطباعة والمشاكل المرتبطة بالقوائم.
+                            <br />
+                            الأفضلية للسلامة: من خلال رموز QR للقوائم، نساهم في توفير تجربة تناول طعام آمنة من خلال تقليل الاتصال الجسدي بالقوائم المطبوعة. إنها خطوة بسيطة وفعالة نحو الحفاظ على النظافة في منشأتكم.
+
+                        </p>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-12 mb-3">
+                                <img src="~/NataHTML/images/NATA-B.jpg" class="scrollspy-example-item-image img-fluid" alt="">
+                            </div>
+
+                            <div class="col-lg-6 col-12 mb-3">
+                                <img src="~/NataHTML/images/businessman-sitting-by-table-cafe.jpg" class="scrollspy-example-item-image img-fluid" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="scrollspy-example-item" id="item-3">
+                        <h5>لماذا تختارونا؟</h5>
+
+                        <p>
+                            سهولة الاستخدام: تم تصميم منصتنا لتكون سهلة الاستخدام سواء لأصحاب المطاعم أو زبائنهم. إن إنشاء وإدارة رموز QR للقوائم أمر سهل للغاية.
+                            <br />
+                            التخصيص: نحن ندرك أن كل مطعم فريد من نوعه. لهذا السبب نقدم تصاميم رموز QR قابلة للتخصيص تتناسب مع هوية علامتك التجارية.
+                            <br />
+                            الموثوقية: يمكنكم الاعتماد علينا لإنشاء رموز QR موثوقة وآمنة. نحن نضمن دائمًا توفر قوائمكم، حتى خلال ساعات الذروة.
+                        </p>
+
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-12">
+                                <img src="~/NataHTML/images/tablet-screen-contents.jpg" class="img-fluid" alt="">
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <p>NATA SUPPORT TEAM</p>
+
+                                <p>
+                                    <strong>
+                                        دعم متفرغ: فريقنا هنا لمساعدتكم في كل خطوة. سواء كان لديكم أسئلة، أو تحتاجون إلى مساعدة، أو ترغبون في استكشاف ميزات جديدة، نحن هنا لمساعدتكم.
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scrollspy-example-item" id="item-4">
+                        <h5>انضموا إلينا في تحقيق تحول في تناول الطعام</h5>
+
+                        <p>
+                            انضموا إلى المجتمع المتنامي للمطاعم التي اعتمدت مستقبل تناول الطعام مع NATA. دعونا نبسط إدارة القائمة الخاصة بكم ونرفع تجربة تناول الطعام لزبائنكم.
+                            <br />
+                            سواء كنتم مقهى صغيرًا أو مطعمًا فاخرًا، فإن رموز الاستجابة السريعة للقوائم التي نقدمها مصممة لتلبية احتياجاتكم.
+                            <br />
+                            شكرًا لكم على النظر في NATA كشريك لتعزيز الوجود الرقمي لمطعمكم.
+                        </p>
+
+                        <img src="~/NataHTML/images/workwithus.jpg" class="scrollspy-example-item-image img-fluid mb-3" alt="">
+
+                        <p>اكتشف خدماتنا اليوم وشاهد الفرق بنفسك.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="author-section section-padding" id="section_3">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+                <img src="~/NataHTML/images/portrait-mature-smiling-authoress-sitting-desk.jpg" class="author-image img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                <h6>شركاؤنا</h6>
+
+                <div class="row">
+
+                    <div class="col-md-3 partner-logo">
+
+                        <img class="partner-img" src="~/LogoImages/9dfa62c2-b633-4e5b-a90b-d8f3759b769e_restaurant-logo-design-(1)-template-b9bd726f6bee3380567f1c9b63a8c99b_screen.jpg" id="DemoImage" />
+
+                    </div>
+                    @*<div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/bk.png" />
+                    </div>
+
+                    <div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/ddc.png" />
+                    </div>
+
+                    <div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/dop.png" />
+                    </div>
+
+                    <div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/kfc.png" />
+                    </div>
+
+                    <div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/mac.png" />
+                    </div>
+
+                    <div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/pop.png" />
+                    </div>
+
+                    <div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/pzh.png" />
+                    </div>
+
+                    <div class="col-md-3 partner-logo">
+                        <img class="partner-img" src="~/NataHTML/images/partners/sbc.png" />
+                    </div>*@
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<footer class="border-top footer text-muted">
+    <section class="contact-section section-padding" id="section_4">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-5 col-12 mx-auto">
+                    <form class="custom-form download-form bg-white shadow" asp-action="IndexAR" asp-controller="Home" method="post">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-1" style="direction: rtl;">اطلب قائمة الطعام العصرية برمز QR</h2>
+                        </div>
+
+                        <div class="download-form-body">
+                            <div class="input-group mb-4">
+                                <input asp-for="Name" type="text"   id="form-name" class="form-control" aria-label="form-name" aria-describedby="basic-addon1" placeholder="Full Name" required="">
+
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="custom-form-icon bi-person"></i>
+                                </span>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <input type="text" asp-for="Mobile"   class="form-control" aria-label="form-phone" aria-describedby="basic-addon1" placeholder="0787878787" required="">
+
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="custom-form-icon bi bi-telephone"></i>
+                                </span>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <input type="email" asp-for="Email"  class="form-control" placeholder="name@domain.com" aria-label="form-email" aria-describedby="basic-addon2" required="">
+
+                                <span class="input-group-text" id="basic-addon2">
+                                    <i class="custom-form-icon bi-envelope"></i>
+                                </span>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <input type="text" asp-for="RestaurentName" class="form-control" aria-label="form-company" aria-describedby="basic-addon1" placeholder="Company Name" required>
+
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="custom-form-icon bi-building"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-lg-8 col-md-10 col-8 mx-auto">
+                                <button type="submit" class="form-control">إرسال</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-6 col-12">
+                    <h6 class="mt-5">لا تتردد بالاتصال بنا</h6>
+
+                    <h2 class="mb-4" style="color: white;">معلومات التواصل</h2>
+
+                    <p class="mb-3">
+                        <a href="https://maps.google.com" class="contact-link">
+                            <i class="bi-geo-alt me-2"></i>
+                            عمان , الاردن
+                        </a>
+                    </p>
+
+                    <p class="mb-2">
+                        <a href="tel: 0795894376" class="contact-link">
+                            <i class="bi bi-telephone"></i>
+                            +962795894376
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="mailto:support@nataqr.com" class="contact-link">
+                            <i class="bi bi-envelope"></i>
+                            Support@nataqr.com
+                        </a>
+                    </p>
+
+                    <h6 class="site-footer-title mt-5 mb-3">التواصل الاجتماعي</h6>
+
+                    <ul class="social-icon mb-4">
+                        <li class="social-icon-item">
+                            <a href="https://www.instagram.com/nataqrcode/" class="social-icon-link bi-instagram"></a>
+                        </li>
+
+                        
+
+                        <li class="social-icon-item">
+                            <a href="https://facebook.com/NataQR" class="social-icon-link bi-facebook"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://wa.me/962795894376" class="social-icon-link bi-whatsapp"></a>
+                        </li>
+                    </ul>
+
+                    <p class="copyright-text">
+                        2023 &copy; NATA All Rights Reserved | Powered By
+                        <a rel="nofollow" class="contact-link" style="text-decoration: underline;" href="https://das-vision.com/" target="_blank">DAS Vision</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        // Get a reference to the image element
+        var image = document.getElementById("DemoImage");
+
+        // Add a click event listener to the image
+        image.addEventListener("click", function () {
+            // Construct the URL based on the controller and action
+            var baseUrl = window.location.origin; // Get the base URL of the current page
+            var controller = "Menus"; // Replace with your controller name
+            var action = "Demo"; // Replace with your action name
+
+            // Construct the full URL
+            var url = baseUrl + "/" + controller + "/" + action;
+
+            // Redirect to the constructed URL
+            window.location.href = url;
+        });
+    </script>

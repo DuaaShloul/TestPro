@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Contact>
+@{
+    ViewData["Title"] = "Messages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+   
+}
+<section class="contact-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-12 mx-auto">
+                @if (Model.Any())
+                {
+
+                    @*<div><a asp-action="Register" asp-controller="Account" style="background-color: #fd7914; color: black   "> Create New User </a></div>*@
+                    @foreach (var item in Model)
+                    {
+                        <div class="card">
+                            <div class="card-header">Message Id : @item.ContactId</div>
+                            <div class="card-body">
+
+                                <h6 class="card-title" style="color: #008081"> Name  : @item.Name</h6>
+                                <br />
+                                <h6 class="card-title" style="color: #008081"> Phone  : @item.Mobile</h6>
+                                <br />
+                                <h6 class="card-title" style="color: #008081">Email  : @item.Email</h6>
+                                <br />
+                                <h6 class="card-title" style="color: #008081">Restaurent Name : @item.RestaurentName</h6>
+
+                            </div>
+                            <div class="card-footer">
+                                @* <a asp-action="EditRole" asp-controller="Account" asp-route-id="@item.Id" class="btn btn-info">Edit Role</a>*@
+                                <a asp-action="DeleteMsg" asp-controller="Account" asp-route-id="@item.ContactId" class="btn btn-danger">Delete Message</a>
+                            </div>
+
+
+                        </div>
+                        <br />
+
+                    }
+
+
+                }
+                else
+                {
+
+                    <div class="card">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h1 class="card-title">
+                                No Messages <br />
+                                 
+                            </h1>
+                        </div>
+                        <div class="card-footer">
+                           @* <div><a asp-action="Register" asp-controller="Account" class="btn btn-primary"> Create New User </a></div>*@
+                        </div>
+
+
+                    </div>
+
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+

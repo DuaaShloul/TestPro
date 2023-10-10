@@ -1,0 +1,32 @@
+﻿@model List<QRMenu.Models.Order>
+@{
+    ViewData["Title"] = "AllOrders";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AllOrders</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Table Number</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.TableNumber</td>
+                <td>@order.CreatedAt</td>
+                <td>
+                    <a asp-controller="Menus" asp-action="OrderDetails" asp-route-orderId="@order.OrderId">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

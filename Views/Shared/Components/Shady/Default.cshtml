@@ -1,0 +1,74 @@
+﻿@model IEnumerable<QRMenu.Models.ShadyMenu>
+
+
+
+@foreach (var item in Model)
+{
+    <!-- Item -->
+    <div class="col-md-12">
+        <div class="itemCard">
+            <div class="menu-prodact-image">
+                <img src="@item.ImageUrl">
+            </div>
+            <div class="menu-prodact-name">
+                <h1>
+                    @item.ItemNameAR | @item.ItemNameEN
+                </h1>
+                <h2>
+                    @item.Details
+                </h2>
+            </div>
+            <div class="menu-prodact-price">
+                <h1>
+                    @item.Price JD
+                </h1>
+                <div class="quantity">
+                    <div class="qtyContainer">
+                        <span class="qtySpan">Quantity</span>
+                        <input class="itemsNo" type="number" min="1" value="1" id="quantity-@item.ShadyMenuId"/>
+                    </div>
+                 <button class="addItem" onclick="addToCart('@item.ItemNameAR', @item.Price, @item.ShadyMenuId)">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End-Item -->
+    <!-- Item -->
+
+}
+
+
+
+
+<script>
+    function addToCart(name, price, itemId) {
+        // Get the quantity input value
+        var quantity = parseInt(document.getElementById('quantity-' + itemId).value);
+
+        // Create an object representing the item
+        var item = {
+            name: name,
+            price: price,
+            quantity: quantity
+        };
+
+        // Get the existing cart items from localStorage or initialize an empty array
+        var cartItems = JSON.parse(localStorage.getItem('ShadycartItems')) || [];
+
+        // Check if the item already exists in the cart
+        var existingItemIndex = cartItems.findIndex(function (cartItem) {
+            return cartItem.name === name;
+        });
+
+        if (existingItemIndex !== -1) {
+            // Update the quantity if the item is already in the cart
+            cartItems[existingItemIndex].quantity += quantity;
+        } else {
+            // Add the item to the cart if it's not already there
+            cartItems.push(item);
+        }
+
+        // Store the updated cartItems back in localStorage
+        localStorage.setItem('ShadycartItems', JSON.stringify(cartItems));
+    }
+</script>
